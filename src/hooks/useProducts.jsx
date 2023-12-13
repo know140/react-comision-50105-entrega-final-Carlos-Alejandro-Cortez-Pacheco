@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { doc } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { getDocs, getFirestore, collection, getDoc, doc, query, where} from "firebase/firestore";
+import { getDocs, getFirestore, collection, where, query } from "firebase/firestore";
 
-export const useAllProducts = (limit) => {
+export const useAllProducts = (limit, searchTerm = "") => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -11,7 +12,15 @@ export const useAllProducts = (limit) => {
     const db = getFirestore();
     const collectionRef = collection(db, "products");
 
-    getDocs(collectionRef)
+    // Construir la consulta
+    let baseQuery = query(collectionRef);
+
+    // Agregar filtro por término de búsqueda si está presente
+    if (searchTerm) {
+      baseQuery = query(collectionRef, where("title", ">=", searchTerm.toLowerCase()));
+    }
+
+    getDocs(baseQuery)
       .then((res) => {
         const data = res.docs.map((doc) => ({
           id: doc.id,
@@ -21,7 +30,7 @@ export const useAllProducts = (limit) => {
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
-  }, []);
+  }, [searchTerm]);
 
   return { products, loading, error };
 };
