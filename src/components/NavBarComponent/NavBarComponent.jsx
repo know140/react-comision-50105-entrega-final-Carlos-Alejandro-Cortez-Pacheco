@@ -33,7 +33,7 @@ export const NavBarComponent = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand style={brandStyle}>Tienda Daniel</Navbar.Brand>
+        <Navbar.Brand style={brandStyle}>CUBO</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
