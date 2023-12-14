@@ -23,10 +23,10 @@ const brandStyle = {
 };
 
 const centerText = {
-  textAlign: "center", // Centra el texto dentro del menú desplegable
-  width: "500px", // Puedes ajustar el ancho del contenedor según tus necesidades
-  // maxWidth: "200px", // O puedes usar maxWidth en lugar de width
-  margin: "5px 2px", // Agrega margen superior e inferior para evitar colisiones
+  textAlign: "center",
+  width: "500px", 
+  
+  margin: "5px 2px", 
   padding: "10px",
 };
 
