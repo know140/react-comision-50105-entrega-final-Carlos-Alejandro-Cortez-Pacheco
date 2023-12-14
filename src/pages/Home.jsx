@@ -11,12 +11,13 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <input
         type="text"
         placeholder="Buscar productos..."
         value={searchTerm}
         onChange={handleSearchChange}
+        style={{ marginBottom: '20px', padding: '5px', borderRadius: '5px', width: '300px' }}
       />
       {loading ? (
         <LoaderComponent />
