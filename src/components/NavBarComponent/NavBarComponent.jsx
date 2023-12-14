@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
 import { Link } from "react-router-dom";
 
+
 const navLinkStyle = {
   textDecoration: "none",
   color: "inherit",
@@ -43,6 +44,9 @@ export const NavBarComponent = () => {
             <Link to="#link" style={navLinkStyle}>
               Productos
             </Link>
+            <Link to="/contacto" style={navLinkStyle}>
+    Contacto
+  </Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
               <Link to="/category/laptops" style={{ ...navLinkStyle, ...centerText }}>
                 Laptops
@@ -50,7 +54,10 @@ export const NavBarComponent = () => {
               <Link to="/category/smartphones" style={{ ...navLinkStyle, ...centerText }}>
                 Smartphones
               </Link>
+              
+              
             </NavDropdown>
+            
           </Nav>
           <CartWidgetComponent />
         </Navbar.Collapse>
